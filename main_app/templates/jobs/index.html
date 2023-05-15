@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>Jobs list</h1>
+{% comment %} ! Is {{job.role}} below correct? You haven't made your model yet. {% endcomment %}
+{% for job in jobs %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ job.name }}</span>
+      <p>Breed: {{ job.breed }}</p>
+      <p>Description: {{ job.description }}</p>
+      {% if job.age%}
+        <p>Age: {{ job.age }}</p>
+      {% else %}
+        <p>Age: Kitten</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,1 @@
+The idea is to have a userbased app where you can add/edit/delete jobs that you've applied to. Additionally, you'll be able to add follow ups on the jobs (contact, date/time), as well as assign tags to jobs for certain categories for industry, payscale, remote, on-site, Tier1, Tier2, etc.

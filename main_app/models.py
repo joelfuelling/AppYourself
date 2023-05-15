@@ -30,6 +30,6 @@ class Role(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('role_detail', kwargs={"role_id": self.id})
+        return reverse('role_detail', kwargs={"pk": self.id})
         # Lets an individual OBJECT tell the app "my detail page is 'this'"
     

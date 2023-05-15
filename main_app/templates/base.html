@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppYourself</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% comment %} Nbsp stands for non-breaking space, meaning that strings separated with this entity will not be separated and put into separate lines. {% endcomment %}
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="/" class="left">&nbsp;&nbsp;App Yourself</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/jobs">View All Positions</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="page-footer">
+        <h5 class="center-align">2023 General Assembly SEI - App Yourself &nbsp;</h5>
+    </footer>
+</body>
+</html>

@@ -35,11 +35,11 @@ class RoleCreate(CreateView):
 
 class RoleUpdate(UpdateView):
     model = Role
-    fields = '__all__'
+    fields = ['company_name', 'salary', 'location', 'description']
 
 class RoleDelete(DeleteView):
     model = Role
-    success_url = '/role'
+    success_url = '/roles'
 
 class RoleDetail(DetailView):
     model = Role

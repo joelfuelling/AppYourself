@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
-import datetime
+
 
 #? CONSTANT variables assigned to salaires dropdown/CharField in Role Model.
 SALARIES = (
@@ -33,3 +33,16 @@ class Role(models.Model):
         return reverse('role_detail', kwargs={"pk": self.id})
         # Lets an individual OBJECT tell the app "my detail page is 'this'"
     
+class FollowUp(models.Model):
+    name = models.CharField(max_length=50)
+    contact = models.CharField(max_length=30)
+    date = models.DateField('date contacted')
+    # reply = models.BooleanField()
+    #* Below is the line creating the 1:M relationship.
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} via {self.contact} was contacted on {self.date} about {self.role} role'
+    
+    class Meta:
+        ordering = ['-date']

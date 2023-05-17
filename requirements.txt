@@ -41,3 +41,4 @@ traitlets==5.9.0
 urllib3==1.26.15
 wcwidth==0.2.6
 whitenoise==6.4.0
+django_heroku==0.3.1

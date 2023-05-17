@@ -1,8 +1,15 @@
-from django import forms
-from .models import SALARIES, Role
-# from .forms import SalaryChoiceField
+from django.forms import ModelForm
+from .models import FollowUp, Role, SALARIES
+from django import forms 
+#? from .forms import SalaryChoiceField
 
-# # Salary stuff!
+class FollowUpForm(ModelForm):
+    class Meta:
+        model = FollowUp
+        fields = ['name', 'contact', 'date']
+
+
+# Salary stuff!
 # class SalaryChoiceField(forms.CharField):
 #     def __init__(self, *args, **kwargs):
 #         super().__init__(choices=SALARIES, *args, **kwargs)
@@ -12,5 +19,4 @@ from .models import SALARIES, Role
 
 #     class Meta:
 #         model = Role
-#         fields = '__all__'
-# Salary stuff!
+#         fields = ['salary'] #? Is this correct?

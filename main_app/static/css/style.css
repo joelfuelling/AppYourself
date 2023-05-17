@@ -1,18 +1,18 @@
 /* why would you need it local to change css?, you can just use the <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> and then overrule it by your local css, and try to use !important behind the background-color: if it doesn't overrule it */
 
 body {
-    background-color: rgb(215, 222, 228);
+    background-color: rgb(234, 237, 240);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}

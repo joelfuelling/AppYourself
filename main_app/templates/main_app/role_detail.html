@@ -8,18 +8,23 @@
       <div class="card-content">
         <span class="card-title">{{ role.name }}</span>
         <p>Salary: {{role.salary}}</p>
-        <p>Company: <a href="COMPANY LINK OPITON">{{ role.company_name }}</a></p>
+        <p>Company: {{ role.company_name }}</a></p>
         <p>Location: {{ role.location}}</p>
         <p>Description: {{ role.description }}</p>
         <p></p>
       </div>
       <div class="card-action">
-        <a href="{% url 'roles_update' role.id %}">EDIT</a>
+        <a href="{% url 'roles_update' role.id %}" class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a>
         <a href="{% url 'roles_delete' role.id %}">DELETE</a>
       </div>
     </div>
   </div>
   <div class="col s12">
+    <form action="{% url 'add_followup' role.id%}" method="POST">
+      {% csrf_token %}
+      {{ followup_form.as_p }}
+      <input type="submit" class="btn" value="Add Follow Up">
+    </form>
     <table class="striped">
       <thead>
         <tr><th>Name</th><th>Contact info</th><th>Date contacted</th></tr>
@@ -36,5 +41,50 @@
     </table>
   </div>
 </div>
-    <script src={% static 'js/role_detail.js' %}></script>
+<hr>
+<div class="row">
+    <div class="col s6">
+      <h4>{{ role.tags.all.count }} Associated Tags</h4>
+      {% if role.tags.count %}
+        {% for tag in role.tags.all%}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                {{tag.name}}
+              </span>
+            </div>
+            <div class="card-action">
+              <form action="{% url 'unassoc_tag' role.id tag.id %}" method='POST'>
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div> 
+  <div class="col s6">
+    <h4>{{ tags_role_doesnt_have.count }} Avaialable Tags</h4>
+    {% if tags_role_doesnt_have.count %}
+      {% for tag in tags_role_doesnt_have.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{tag.name}}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_tag' role.id tag.id %}" method='POST'>
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <h3>{{role.name}} Has All Tags</h3>
+      {% endif %}
+    </div>
+</div>
+<script src={% static 'js/role_detail.js' %}></script>
 {% endblock %}

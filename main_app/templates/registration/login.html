@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% comment %} Use the DOCS for auth/login setup. There is behinds the scenes stuff going on. {% endcomment %}
+<h1>Log In</h1>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% comment %} ? The above hidden input redirects a use right back to where they were "trying" to go (assuming they weren't logged in), after they log in. {% endcomment %}
+    <button type="submit" class="btn">Log In</button>
+  </form>
+  {% comment %} <a href="{% url 'password_reset' %}">Forgot Password?</a> {% endcomment %}
+
+{% endblock %}

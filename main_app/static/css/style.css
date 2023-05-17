@@ -16,3 +16,7 @@ footer.page-footer {
   padding-top: 0;
   text-align: right;
 }
+div.card a {
+  color: #000000;
+  text-decoration: none;
+}

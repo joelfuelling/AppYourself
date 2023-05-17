@@ -13,11 +13,17 @@ Screenshot
 Python
 Django
 HTML
+JavaScrtip
+Heroku Deployment platform
 CSS/Materialize
-CardStarter CSS Library
+
 
 *Getting Started*
-[Click to View Project Planning](your Trello url here) [Click to Play Connect Four!](your deployment url here)
+https://trello.com/b/vPLn9Rb6/app-yourself
+https://github.com/joelfuelling/AppYourself
 
 *Next Steps*
-Create a 1:M relationship
+Create a 1:M relationship - COMPLETE
+Created a M:M relationship - COMPLETE
+User Authorization and Authentication - COMPLETE
+

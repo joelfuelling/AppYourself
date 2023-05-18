@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
-{% block content%}
 
+{% block content%}
+{% load static %}
     {% if object %}
         <h1>Edit <span class="green-text">{{object.name}}</span></h1>
     {% else %}
@@ -10,11 +11,8 @@
         {% csrf_token %}
         <table>
             {{form.as_table}}
-            <tr>
-                <td><label for="{{ form.salary.id_for_label}}">Salary:</label></td>
-                <td>{{ form.salary }}</td>
-            </tr>  
         </table>
-        <input type="submit" value="Submit" class="btn">
-    </form>
+        <input type="submit" value="Submit Role" class="btn">
+    </form>  
+    <script src={% static 'js/role_form.js' %}></script>    
 {% endblock %}

@@ -104,10 +104,10 @@ class RoleDetail(LoginRequiredMixin, DetailView):
     
 class TagList(LoginRequiredMixin, ListView):
   model = Tag
-  # def get_queryset(self):
-  #      queryset = super().get_queryset()
-  #      print(queryset)
-  #      return queryset.filter(user=self.request.user)
+  def get_queryset(self):
+       queryset = super().get_queryset()
+       print(queryset)
+       return queryset.filter(user=self.request.user)
   
 class TagDetail(LoginRequiredMixin, DetailView):
   model = Tag
@@ -115,7 +115,10 @@ class TagDetail(LoginRequiredMixin, DetailView):
 class TagCreate(LoginRequiredMixin, CreateView):
   model = Tag
   fields = ['name']
-
+  def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
+    
 class TagUpdate(LoginRequiredMixin, UpdateView):
   model = Tag
   fields = ['name']

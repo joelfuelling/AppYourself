@@ -4,19 +4,9 @@ from datetime import date
 from django.contrib.auth.models import User
 
 
-#? CONSTANT variables assigned to salaires dropdown/CharField in Role Model.
-SALARIES = (
-    ('$45,000-60,000', 'Jr. Entry Level'),
-    ('$60,000-70,000', 'Entry Level'),
-    ('$70,000-80,000', 'Intermediate'),
-    ('$80,000-95,000', 'Mid-level'),
-    ('$95,000-110,000', 'Experienced'),
-    ('$110,000 +', 'Senior')
-)
-
 class Tag(models.Model): #? This needs placed here so Role can call Tag.
   name = models.CharField(max_length=30)
-
+  user = models.ForeignKey(User, on_delete=models.CASCADE)  
   def __str__(self):
     return self.name
 
@@ -27,13 +17,10 @@ class Tag(models.Model): #? This needs placed here so Role can call Tag.
 class Role(models.Model):
     name = models.CharField(max_length=100)
     company_name = models.CharField(max_length=100)
-    salary = models.CharField(
-        choices=SALARIES,
-        default=SALARIES[0][0]
-        )
+    salary = models.CharField(default='$', max_length=100)
     location = models.CharField(max_length=100)
-    description = models.TextField(max_length=3000)
-    pub_date = models.DateField('date added') #* Default set to today in status JS file.
+    description = models.TextField(default='(include a link!)', max_length=3000)
+    pub_date = models.DateField('date added') #* Default set to today in static JS file.
     tags = models.ManyToManyField(Tag)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     #? AUTO CREATED Django stuff

@@ -111,7 +111,7 @@ class TagDetail(LoginRequiredMixin, DetailView):
 
 class TagCreate(LoginRequiredMixin, CreateView):
   model = Tag
-  fields = '__all__'
+  fields = ['name']
 
 class TagUpdate(LoginRequiredMixin, UpdateView):
   model = Tag

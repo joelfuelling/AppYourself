@@ -15,20 +15,23 @@
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="/" class="left">&nbsp;&nbsp;App Yourself</a></li>
+                    <li><a href="{% url 'index' %}" class="left">&nbsp;&nbsp;App Yourself</a></li>
                 </ul>
-                <ul class="right">
+                <ul class="right menu">
                     <li><a href="{% url 'about' %}">About</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a class="waves-effect waves-red waves-light" href="{% url 'tag_create' %}">Add a Tag</a></li>
-                    <li><a href="{% url 'tag_index' %}">View All Tags</a></li>
-                    <li><a href="{% url 'roles_create' %}">Add a Role</a></li>
-                    <li><a href="{% url 'index' %}">View All Roles</a></li>
-                    <li><a href="{% url 'logout' %}">Log Out {{user}}</a></li>
-                    {% else %}
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'login' %}">Log In</a></li>
-                    {% endif %}
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>MENU</a>
+                    <ul id='dropdown1' class='dropdown-content right'>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'tag_create' %}">Add Tag</a></li>
+                        <li><a href="{% url 'tag_index' %}">View Tags</a></li>
+                        <li><a href="{% url 'roles_create' %}">Add Role</a></li>
+                        <li><a href="{% url 'index' %}">View Roles</a></li>
+                        <li><a href="{% url 'logout' %}">Log Out {{user}}</a></li>
+                        {% else %}
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        {% endif %}
+                    </ul>
                 </ul>
             </div>
         </nav>
@@ -41,4 +44,12 @@
         <h5 class="center-align">2023 General Assembly SEI - App Yourself &nbsp;</h5>
     </footer>
 </body>
+<script>
+    
+document.addEventListener('DOMContentLoaded', function() {
+    var elem = document.querySelectorAll('.dropdown-trigger');
+    var instance = M.Dropdown.init(elem);
+    });
+
+</script>
 </html>

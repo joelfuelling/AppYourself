@@ -6,3 +6,14 @@ defaultDate: new Date(),
 setDefaultDate: true,
 autoClose: true
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    let elem= document.querySelector('.modal');
+    let instance = M.Modal.init(elem);
+    instance.close();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    let elem = document.querySelectorAll('.dropdown-trigger');
+    let instance = M.Dropdown.init(elem);
+  });

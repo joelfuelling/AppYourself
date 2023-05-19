@@ -1,7 +1,7 @@
 /* why would you need it local to change css?, you can just use the <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> and then overrule it by your local css, and try to use !important behind the background-color: if it doesn't overrule it */
 
 body {
-    background-color: rgb(234, 237, 240);
+    background-color: rgb(255, 244, 230);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     min-height: 100vh;
@@ -17,24 +17,18 @@ footer.page-footer {
   text-align: right;
 }
 
-.link-max {
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+a {
+  color: #000000;
+  text-decoration: none;
 }
-
 div.card a {
   color: #000000;
   text-decoration: none;
 }
 
-.waves-effect.waves-brown .waves-ripple {
-  /* The alpha value allows the text and background color
-  of the button to still show through. */
-   background-color: rgba(177, 183, 62, 0.733);
- }
+.chip {
+  color: black;
+  font-size: 20px;
+}
 
- div.alert {
-  font-size: 18px;
- }
+ 

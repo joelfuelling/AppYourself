@@ -21,7 +21,7 @@
                 <ul class="right menu">
                     <li><a class="spaced" href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
-                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>MENU</a>
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons left">menu</i>MENU</a>
                     <ul id='dropdown1' class='dropdown-content right'>           
                         <li><a class="teal lighten-5"href="{% url 'tag_create' %}">Add Tag</a></li>
                         <li><a class="teal lighten-4 white-text"href="{% url 'tag_index' %}">View Tags</a></li>
@@ -31,6 +31,7 @@
                         {% else %}
                         <li><a class="spaced"href="{% url 'signup' %}">Sign Up</a></li>
                         <li><a class="spaced"href="{% url 'login' %}">Log In</a></li>
+                        <a class='btn disabled' href='#'><i class="material-icons left">lock</i>MENU</a>
                         {% endif %}
                     </ul>
                 </ul>

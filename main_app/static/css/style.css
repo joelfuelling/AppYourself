@@ -40,7 +40,11 @@ button {
 p.left-align {
   font-family: 'Quicksand', sans-serif;
   font-size: 26px;
-  
+}
+
+p.home {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
 }
 .container {
   max-width: 800px;

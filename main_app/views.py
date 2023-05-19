@@ -62,7 +62,7 @@ class RoleList(LoginRequiredMixin, ListView):
 
 class RoleCreate(LoginRequiredMixin, CreateView):
     model = Role
-    fields = ['name', 'company_name', 'salary', 'location', 'description', 'pub_date']
+    fields = ['name', 'company_name', 'link', 'salary', 'location', 'description', 'pub_date']
     #? Using Django, we only need a single URL-based route because a CreateView CBV will automatically:
         #? Create a Django ModelForm used to automatically create the form's inputs for the Model.
         #? Handle the Request:
@@ -79,7 +79,7 @@ class RoleCreate(LoginRequiredMixin, CreateView):
     
 class RoleUpdate(LoginRequiredMixin, UpdateView):
     model = Role
-    fields = ['name', 'salary', 'location', 'description']
+    fields = ['name', 'company_name', 'link', 'salary', 'location', 'description']
 
 class RoleDelete(LoginRequiredMixin, DeleteView):
     model = Role

@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
   {% if object and user.is_authenticated %}
     <h1>Edit <span class="teal-text">{{Tag.name}}</span></h1>
   {% else %}
@@ -13,7 +12,6 @@
       {{ form.as_table }}
     </table>
     <input type="submit" value="Submit Tag" class="btn">
-    <a class='cancel red-text' href="{% url 'tags_detail' tag.id %}">Cancel</a>
+    <a class='red-text' href="{% url 'tag_index' %}">Cancel</a>
   </form>
-  
 {% endblock %}

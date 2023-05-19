@@ -17,24 +17,11 @@ footer.page-footer {
   text-align: right;
 }
 
-.link-max {
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 div.card a {
   color: #000000;
   text-decoration: none;
 }
 
-.waves-effect.waves-brown .waves-ripple {
-  /* The alpha value allows the text and background color
-  of the button to still show through. */
-   background-color: rgba(177, 183, 62, 0.733);
- }
-
- div.alert {
+ .alert {
   font-size: 18px;
  }

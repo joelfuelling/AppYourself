@@ -1,7 +1,7 @@
 /* why would you need it local to change css?, you can just use the <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> and then overrule it by your local css, and try to use !important behind the background-color: if it doesn't overrule it */
 
 body {
-    background-color: rgb(255, 244, 230);
+    background-color: rgb(255, 249, 243);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     min-height: 100vh;
@@ -10,6 +10,10 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.container {
+  max-width: 800px;
 }
 
 footer.page-footer {
@@ -30,5 +34,6 @@ div.card a {
   color: black;
   font-size: 20px;
 }
+
 
  

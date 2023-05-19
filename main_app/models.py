@@ -37,7 +37,7 @@ class Role(models.Model):
         # Lets an individual OBJECT tell the app "my detail page is 'this'"
 
     def days_since_followup(self):
-       last_followup = self.followup_set.order_by('-date').first()
+       last_followup = self.followup_set.order_by('pk').last()
        if last_followup:
           days_since = (date.today() - last_followup.date).days
           return days_since
@@ -59,7 +59,7 @@ class FollowUp(models.Model):
         return f'{self.name} via {self.contact} was contacted on {self.date} about {self.role} role'
     
     class Meta:
-        ordering = ['-date']
+        ordering = ['-pk']
 
 
 

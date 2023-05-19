@@ -8,12 +8,13 @@
     <title>AppYourself</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header class="navbar-fixed">
+    <header class="navbar-fixed blue">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper blue">
                 <ul>
                     <li><a href="{% url 'index' %}" class="left">&nbsp;&nbsp;App Yourself</a></li>
                 </ul>
@@ -22,11 +23,11 @@
                     <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>MENU</a>
                     <ul id='dropdown1' class='dropdown-content right'>
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'tag_create' %}">Add Tag</a></li>
-                        <li><a href="{% url 'tag_index' %}">View Tags</a></li>
-                        <li><a href="{% url 'roles_create' %}">Add Role</a></li>
-                        <li><a href="{% url 'index' %}">View Roles</a></li>
-                        <li><a href="{% url 'logout' %}">Log Out {{user}}</a></li>
+                        <li><a class="teal lighten-5"href="{% url 'tag_create' %}">Add Tag</a></li>
+                        <li><a class="teal lighten-4 white-text"href="{% url 'tag_index' %}">View Tags</a></li>
+                        <li><a class="teal lighten-3 white-text"href="{% url 'roles_create' %}">Add Role</a></li>
+                        <li><a class="teal lighten-2 white-text"href="{% url 'index' %}">View Roles</a></li>
+                        <li><a class="teal lighten-1 white-text"href="{% url 'logout' %}">Log Out {{user}}</a></li>
                         {% else %}
                         <li><a href="{% url 'signup' %}">Sign Up</a></li>
                         <li><a href="{% url 'login' %}">Log In</a></li>

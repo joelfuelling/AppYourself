@@ -7,6 +7,7 @@
 {% for role in role_list %}
 {% comment %} ! 'role_list', the name of the template variable that gets passed up from the class based index view. {% endcomment %}
   <div class="card">
+    <h5 class="amber lighten-3">
     <a href="{% url 'role_detail' role.id%}">
       <div class="card-content">
         <span class="card-title">{{ role.name }}</span>
@@ -16,6 +17,7 @@
         <p class="truncate">Description: {{ role.description }}</p>
       </div>
     </a>
+    </h5>
   </div>
 {% endfor %}
 

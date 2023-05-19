@@ -10,8 +10,8 @@
         <span class="card-title">{{ tag.name }}</span>
       </div>
       <div class="card-action">
-        <a href="{% url 'tag_update' tag.id %}">Edit</a>
-        <a href="{% url 'tag_delete' tag.id %}">Delete</a>
+        <a href="{% url 'tag_update' tag.id %}"><i class="material-icons">edit</i></a></a>
+        <a href="{% url 'tag_delete' tag.id %}"><i class="material-icons">delete</i></a></a>
       </div>
     </div>
   </div>

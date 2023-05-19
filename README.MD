@@ -1,29 +1,34 @@
 
-
--Monday: Slow day, can't focus my wife and I are sick. App is able to add/view roles as well as 
-
 *App Yourself*
-The idea is to have a userbased app where you can add/edit/delete jobs that you've applied to. Additionally, you'll be able to add follow ups on the jobs (contact, date/time), as well as assign tags to jobs for certain categories for industry, payscale, remote, on-site, Tier1, Tier2, etc.
+App Yourself is Userbased app to add/edit/delete roles applied to or interested in! Add a record for each followup on each role (contact, date/time) and be alerted via text of the number of days elapsed since your last follow up. 
+
+You'll be able to create and add tags to those jobs to categorize what attributes each job has.
+
+User can enter a link to the role or website, or whichever pertinent link they choose to associate with the role. That link can be accessed on the individiual role.
+
+Create and add/remove tags to roles to categorize industry, work, languages used, etc.
+
+
 Screenshot
-
-
-
-
+![Alt text](Screenshots/detail-page-with-description-modal.png)
+![Alt text](Screenshots/detail-page.png)
 *Technologies Used*
 Python
 Django
 HTML
-JavaScrtip
+CSS
+JavaScript
 Heroku Deployment platform
 CSS/Materialize
 
 
 *Getting Started*
+https://appyourself.herokuapp.com/
 https://trello.com/b/vPLn9Rb6/app-yourself
 https://github.com/joelfuelling/AppYourself
 
 *Next Steps*
-Create a 1:M relationship - COMPLETE
-Created a M:M relationship - COMPLETE
-User Authorization and Authentication - COMPLETE
+- # of times followed up shown on page
+- Sort by tags (if contains "this one" then show it)
+
 

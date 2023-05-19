@@ -106,7 +106,6 @@ class TagList(LoginRequiredMixin, ListView):
   model = Tag
   def get_queryset(self):
        queryset = super().get_queryset()
-       print(queryset)
        return queryset.filter(user=self.request.user)
   
 class TagDetail(LoginRequiredMixin, DetailView):

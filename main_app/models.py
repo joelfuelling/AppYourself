@@ -22,7 +22,7 @@ class Role(models.Model):
     company_name = models.CharField(max_length=100)
     salary = models.CharField(default='$', max_length=100)
     location = models.CharField(max_length=100)
-    description = models.TextField(default='(include a link!)', max_length=3000)
+    description = models.TextField(max_length=6000)
     pub_date = models.DateField('date added') #* Default set to today in static JS file.
     tags = models.ManyToManyField(Tag)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -15,7 +15,7 @@
           <a href="{{ role.link }}" target="_blank"><span class = "link-max">{{ role.link }}</span></a>
         </p>	
         <br>
-        <a class="waves-effect waves-light btn modal-trigger " href="#modal1">Description</a>
+        <a class="btn modal-trigger " href="#modal1">Description</a>
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Description: </h4>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="card-action">
-        <a href="{% url 'roles_update' role.id %}" class="btn-floating btn-large teal pulse"><i class="material-icons">edit</i></a>
+        <a href="{% url 'roles_update' role.id %}">EDIT</i></a>
         <a href="{% url 'roles_delete' role.id %}">DELETE</a>
       </div>
     </div>
@@ -65,60 +65,36 @@
 <hr>
 <div class="row">
     <div class="col s6">
-      <h4>{{ role.tags.all.count }} Associated Tags</h4>
+      <h5>{{ role.tags.all.count }} Associated Tags</h5>
       {% if role.tags.count %}
-        {% for tag in role.tags.all%}
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">
-                {{tag.name}}
-              </span>
-            </div>
-            <div class="card-action">
-              <form action="{% url 'unassoc_tag' role.id tag.id %}" method='POST'>
-                {% csrf_token %}
-                <button type="submit" class="btn">Remove</button>
-              </form>
-            </div>
+        {% for tag in role.tags.all%}         
+          <div class="chip">          
+            <form action="{% url 'unassoc_tag' role.id tag.id %}" method='POST'>
+              {{tag.name}}
+              {% csrf_token %}
+              <button type="submit">x</button>
+            </form>
           </div>
         {% endfor %}
       {% endif %}
     </div> 
   <div class="col s6">
-    <h4>{{ tags_role_doesnt_have.count }} Available Tags</h4>
+    <h5>{{ tags_role_doesnt_have.count }} Available Tags</h5>
     {% if tags_role_doesnt_have.count %}
       {% for tag in tags_role_doesnt_have.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              <span>{{tag.name}}</span>
-            </span>
-          </div>
-          <div class="card-action">
-            <form action="{% url 'assoc_tag' role.id tag.id %}" method='POST'>
-              {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
-            </form>
-          </div>
-        </div>
+      <div class="chip">          
+        <form action="{% url 'assoc_tag' role.id tag.id %}" method='POST'>
+          {{tag.name}}
+          {% csrf_token %}
+          <button type="submit">+</button>
+        </form>
+      </div>
         {% endfor %}
       {% else %}
         <h3>{{role.name}} Has All Tags</h3>
       {% endif %}
     </div>
 </div>
-<script>  
-document.addEventListener('DOMContentLoaded', function() {
-  var elem= document.querySelector('.modal');
-  var instance = M.Modal.init(elem);
-  instance.close();
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems, options);
-});
-
-</script>
 <script src={% static 'js/role_detail.js' %}></script>
 {% endblock %}

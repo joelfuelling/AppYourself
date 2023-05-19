@@ -20,17 +20,17 @@
                 </ul>
                 <ul class="right menu">
                     <li><a class="spaced" href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated %}
                     <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>MENU</a>
-                    <ul id='dropdown1' class='dropdown-content right'>
-                        {% if user.is_authenticated %}
+                    <ul id='dropdown1' class='dropdown-content right'>           
                         <li><a class="teal lighten-5"href="{% url 'tag_create' %}">Add Tag</a></li>
                         <li><a class="teal lighten-4 white-text"href="{% url 'tag_index' %}">View Tags</a></li>
                         <li><a class="teal lighten-3 white-text"href="{% url 'roles_create' %}">Add Role</a></li>
                         <li><a class="teal lighten-2 white-text"href="{% url 'index' %}">View Roles</a></li>
                         <li><a class="teal lighten-1 white-text"href="{% url 'logout' %}">Log Out {{user}}</a></li>
                         {% else %}
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        <li><a class="spaced"href="{% url 'signup' %}">Sign Up</a></li>
+                        <li><a class="spaced"href="{% url 'login' %}">Log In</a></li>
                         {% endif %}
                     </ul>
                 </ul>

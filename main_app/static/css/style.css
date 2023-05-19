@@ -1,4 +1,4 @@
-/* why would you need it local to change css?, you can just use the <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> and then overrule it by your local css, and try to use !important behind the background-color: if it doesn't overrule it */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Poppins:wght@350&family=Quicksand&display=swap');
 
 body {
     background-color: rgb(255, 249, 243);
@@ -8,10 +8,40 @@ body {
     flex-direction: column;
   }
 
+.archivo {
+  font-family: 'Archivo', sans-serif;
+}
+
+.row .col.s12 {
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
 main {
   flex: 1 0 auto;
 }
+a.left, .spaced  {
+  font-family: 'Archivo', sans-serif;
+  font-size: 24px;
+  letter-spacing: -1.2px;
+}
 
+h1 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 60px;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 50%;
+  border-style: none;
+  color: rgb(255, 255, 255);
+}
+
+p.left-align {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 26px;
+  
+}
 .container {
   max-width: 800px;
 }
@@ -25,14 +55,21 @@ a {
   color: #000000;
   text-decoration: none;
 }
-div.card a {
-  color: #000000;
+.role-link {
+  color: #0e7b81;
   text-decoration: none;
 }
 
 .chip {
   color: black;
-  font-size: 20px;
+  font-size: 18px;
+}
+span.card-title {
+  font-size: 24px;
+}
+.card-content {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
 }
 
 

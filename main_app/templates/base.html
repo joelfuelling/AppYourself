@@ -19,7 +19,7 @@
                     <li><a href="{% url 'index' %}" class="left">&nbsp;&nbsp;App Yourself</a></li>
                 </ul>
                 <ul class="right menu">
-                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a class="spaced" href="{% url 'about' %}">About</a></li>
                     <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>MENU</a>
                     <ul id='dropdown1' class='dropdown-content right'>
                         {% if user.is_authenticated %}

@@ -59,7 +59,7 @@ class FollowUp(models.Model):
         return f'{self.name} via {self.contact} was contacted on {self.date} about {self.role} role'
     
     class Meta:
-        ordering = ['-pk']
+        ordering = ['pk']
 
 
 

@@ -8,6 +8,7 @@ class FollowUpForm(ModelForm):
     class Meta:
         model = FollowUp
         fields = ['name', 'contact', 'date']
+        ordering = ['date']
 
 # user 'Sign Up' authentication... What about passing these to a 'Profile' Form as well?
 # urls.py would need 'add_user' or something similar to 'add_feeding' in cats model

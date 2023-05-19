@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppYourself</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% comment %} Nbsp stands for non-breaking space, meaning that strings separated with this entity will not be separated and put into separate lines. {% endcomment %}
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
@@ -21,7 +20,7 @@
                 <ul class="right">
                     <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'tag_create' %}">Add a Tag</a></li>
+                    <li><a class="waves-effect waves-red waves-light" href="{% url 'tag_create' %}">Add a Tag</a></li>
                     <li><a href="{% url 'tag_index' %}">View All Tags</a></li>
                     <li><a href="{% url 'roles_create' %}">Add a Role</a></li>
                     <li><a href="{% url 'index' %}">View All Roles</a></li>

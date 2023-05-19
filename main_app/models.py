@@ -13,9 +13,12 @@ class Tag(models.Model): #? This needs placed here so Role can call Tag.
   def get_absolute_url(self):
     return reverse('tags_detail', kwargs={'pk': self.id})
 
+  class Meta:
+        ordering = ['name']  
 
 class Role(models.Model):
     name = models.CharField(max_length=100)
+    link = models.URLField(max_length=200)
     company_name = models.CharField(max_length=100)
     salary = models.CharField(default='$', max_length=100)
     location = models.CharField(max_length=100)
@@ -32,6 +35,16 @@ class Role(models.Model):
     def get_absolute_url(self):
         return reverse('role_detail', kwargs={"pk": self.id})
         # Lets an individual OBJECT tell the app "my detail page is 'this'"
+
+    def days_since_followup(self):
+       last_followup = self.followup_set.order_by('-date').first()
+       if last_followup:
+          days_since = (date.today() - last_followup.date).days
+          return days_since
+       return None
+    
+    class Meta:
+        ordering = ['-pub_date']
     
 class FollowUp(models.Model):
     name = models.CharField(max_length=50)

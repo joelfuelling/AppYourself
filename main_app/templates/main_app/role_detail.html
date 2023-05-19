@@ -10,11 +10,24 @@
         <p>Salary: {{role.salary}}</p>
         <p>Company: {{ role.company_name }}</a></p>
         <p>Location: {{ role.location}}</p>
-        <p>Description: {{ role.description }}</p>
-        <p></p>
+        <p class="truncate role-link">
+          Link: 
+          <a href="{{ role.link }}" target="_blank"><span class = "link-max">{{ role.link }}</span></a>
+        </p>	
+        <br>
+        <a class="waves-effect waves-light btn modal-trigger " href="#modal1">Description</a>
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Description: </h4>
+            <p>{{role.description}}</p>
+          </div>
+          <div class="modal">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+          </div>
+        </div>
       </div>
       <div class="card-action">
-        <a href="{% url 'roles_update' role.id %}" class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a>
+        <a href="{% url 'roles_update' role.id %}" class="btn-floating btn-large teal pulse"><i class="material-icons">edit</i></a>
         <a href="{% url 'roles_delete' role.id %}">DELETE</a>
       </div>
     </div>
@@ -23,8 +36,16 @@
     <form action="{% url 'add_followup' role.id%}" method="POST">
       {% csrf_token %}
       {{ followup_form.as_p }}
+      {% if role.days_since_followup  > 5%}
+      <div class="card-panel red-text center-align alert">{{role.days_since_followup}} DAYS SINCE LAST FOLLOW UP! <input type="submit" class="btn" value="Add Follow Up"></div>
+      {% elif role.days_since_followup %}
+      <div class="card-panel teal-text center-align">{{role.days_since_followup}} Days since last follow up</div>
+      {% else %}
       <input type="submit" class="btn" value="Add Follow Up">
+      {% endif %} 
+      
     </form>
+
     <table class="striped">
       <thead>
         <tr><th>Name</th><th>Contact info</th><th>Date contacted</th></tr>
@@ -64,7 +85,7 @@
       {% endif %}
     </div> 
   <div class="col s6">
-    <h4>{{ tags_role_doesnt_have.count }} Avaialable Tags</h4>
+    <h4>{{ tags_role_doesnt_have.count }} Available Tags</h4>
     {% if tags_role_doesnt_have.count %}
       {% for tag in tags_role_doesnt_have.all %}
         <div class="card">
@@ -86,5 +107,18 @@
       {% endif %}
     </div>
 </div>
+<script>  
+document.addEventListener('DOMContentLoaded', function() {
+  var elem= document.querySelector('.modal');
+  var instance = M.Modal.init(elem);
+  instance.close();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems, options);
+});
+
+</script>
 <script src={% static 'js/role_detail.js' %}></script>
 {% endblock %}

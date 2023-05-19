@@ -6,6 +6,3 @@ defaultDate: new Date(),
 setDefaultDate: true,
 autoClose: true
 });
-
-  const selectEl = document.getElementById('id_salary');
-  M.FormSelect.init(selectEl);

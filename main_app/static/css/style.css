@@ -21,7 +21,7 @@ main {
 }
 a.left, .spaced  {
   font-family: 'Archivo', sans-serif;
-  font-size: 12px;
+  font-size: 24px;
   letter-spacing: -1.2px;
 }
 
@@ -77,10 +77,26 @@ span.card-title {
   font-family: 'Poppins', sans-serif;
 }
 
-@media only screen and (max-width: 575px){
+@media screen and (max-width: 575px){
+  a.left, .spaced  {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@media screen and (max-width: 460px){
   a.left, .spaced  {
     font-family: 'Archivo', sans-serif;
     font-size: 12px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@media screen and (max-width: 420px){
+  a.left, .spaced  {
+    font-family: 'Archivo', sans-serif;
+    font-size: 9px;
     letter-spacing: -1.2px;
   }
 }

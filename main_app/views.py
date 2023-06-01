@@ -84,7 +84,7 @@ class RoleUpdate(LoginRequiredMixin, UpdateView):
 
 class RoleDelete(LoginRequiredMixin, DeleteView):
     model = Role
-    success_url = '/tags'
+    success_url = '/roles'
 
 class RoleDetail(LoginRequiredMixin, DetailView):
   model = Role
@@ -92,7 +92,6 @@ class RoleDetail(LoginRequiredMixin, DetailView):
   def get_context_data(self, **kwargs):
     # Call the base implementation first to get a context
     context = super().get_context_data(**kwargs)
-    # Add in a QuerySet of all the books
     followup_form = FollowUpForm()
     #?
     role = self.get_object() #? role is 'this' object now, so below we can use 'it' to create the id_list      

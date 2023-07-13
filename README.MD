@@ -25,10 +25,5 @@ CSS/Materialize
 *Getting Started*
 https://appyourself.herokuapp.com/
 https://trello.com/b/vPLn9Rb6/app-yourself
-https://github.com/joelfuelling/AppYourself
-
-*Next Steps*
-- # of times followed up shown on page
-- Sort by tags (if contains "this one" then show it)
 
 
